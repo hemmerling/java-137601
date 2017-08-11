@@ -112,6 +112,11 @@
 - Translation-Time include
   - 1 Servet, es wird bei der übersetzung zusammenkopiert
   - 100x include, führt zu Riesen-Servlet
+## JSP Standard Actions ##
+- Unterscheide:
+  - Jsp:param => Dispatching
+  - Jsp:params => Plugins
+- Scope: page, request, session, application
 
 ## Preparation Questions
 ### Actual K1-K4, Q2
