@@ -18,9 +18,9 @@
 ##  Servlet/JSP - Lebenszyklus ##
 - Design-Regel für die Methode init(ServletConfig): Meist gibt es in einer Anwendung nur eine ServletConfig, auch wenn eine Anwendung aus mehreren Servlets besteht.
 - Init(ServletConfig) ruft init() auf
--- Jede Anfrage führt zu Thread-Objekt, jedes führt zur neuen service()-Aufruf. 
--- Mehrere Threads können gemeinsam ( also mehrfach !) auf die selben Instanz-Variablen zugreifen!
--- Konsistenz muss durch das Design der Anwendung sichergestellt werden
+ - Jede Anfrage führt zu Thread-Objekt, jedes führt zur neuen service()-Aufruf. 
+ - Mehrere Threads können gemeinsam ( also mehrfach !) auf die selben Instanz-Variablen zugreifen!
+ - Konsistenz muss durch das Design der Anwendung sichergestellt werden
 - Non-http Kommunikation per Oberklasse GenericServlet(), da gibt’s dann kein doGet() und doPost()
 ## Preparation Questions
 ### Actual K1-K4, Q2
