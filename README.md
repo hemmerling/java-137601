@@ -3,8 +3,6 @@
 ## Notizen zum Kurs, Lecture Notes
 ### Annotationen ###
 - Annotationen sind "neu" in Java EE 6. In Java EE 5 noch nicht vorhanden, also auch nicht im Java EE5 Lernmaterial.
-### Tags ###
-- Tag Files, Tag Handler = nicht mehr prüfungsrelevant für OCEJWCD 6.
 ### Request, Response ###
 - Die HTTP-Methode (GET,.. ) wird nur im Request in der  “Request Line“ erwähnt, nicht bei der Response in der „Response Line“
 - Catalina is Tomcat's servlet container.
@@ -76,6 +74,44 @@
     - requestInitialized – 1x pro Anfrage
 - Wichtige Design-Regel: 1 Listener für jedes Thema ( also nur 1 Listener für ein Thema pro Applikation ), z.B. RequestAttribute
 - Dynamische Registrierung von Listenern nur in der Startphase! Und: JSP-Seiten lassen sich nicht dynamisch registrieren
+- Reihenfolge der Ausführung der Initialisierung von Listenern
+  1. Context 
+  2. Attribute 
+  3. Request
+  4. Session
+  5. contextinitialized()
+- ServletRequestAttributeListener eigentlich nur für Debugging-Zwecke
+## Cookies ##
+- Cookies sind „bloss“ Response-Requests
+- „Session Cookie” hat nichts mit “Session Management” zu tun, sondern die Cookie-Lebensdauer endet mit dem Schließen des Browsers, also dem Ende der Brower-Session.
+- Cookies angeschaltet.
+- Cookies ausgeschaltet:
+  - Request.getSession() erzeugt neue Session, da Cookie nicht übertragen wird
+  - Cookies angeschaltet.- Dann wird URL codiert
+  - Wenn ich die Navigationsleiste einer HTML-Seite nutze ( = auf Links klicke ), behalte ich eine Session.
+  - Gebe ich die URL direkt ein, erhalte ich bei jedem Seitenaufruf eine neue Sesn
+## Tracking Modes ##
+- getDefaultSessionTrackingModes = get the TrackingMode of the server
+- getEffectgiveSessionTrackingModes, setSessionTrackingModes = get/set the Tracking mode for the application
+## JSP Scripting Elements ##
+1. Comments <%
+2. Directives <%@
+3. Declarations ( kein Zugriff auf Request ect. ) <%!
+4. Scriplets <%, 
+5. Expressions <%=
+## Tags ##
+- Tag Files, Tag Handler = nicht mehr prüfungsrelevant für OCEJWCD 6.
+- Tag-files werden ohne Dateiextension .tag angegeben, z.B. „<p:test>“
+- URI:   <tag><name>if</name> , wobei „if“ der Tag ist
+- „exception“ Variable ist nur vorhanden, wenn <%@page isErrorPage=“true“ %>
+- „session“ ist per Default vorhanden, kann aber abgeschaltet werden, durch: <%@page session=„false“ %>
+## Runtime Include vs. Translation-Time Include ##
+- Runtime include: 
+  - 2 Servlets, das Haupt-Servlet ruft Methode auf, kann nicht auf Variablen des anderen Servlets zugreifen.
+  - 100x include, es wird immer das gleiche kleine Servlet aufgerufen, meist performanter
+- Translation-Time include
+  - 1 Servet, es wird bei der übersetzung zusammenkopiert
+  - 100x include, führt zu Riesen-Servlet
 
 ## Preparation Questions
 ### Actual K1-K4, Q2
