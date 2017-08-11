@@ -10,9 +10,9 @@
 - Coyote is a Connector component for Tomcat that supports the HTTP 1.1 protocol as a web server
 - request.* Methoden sind fast alles Lese-Methoden ( z.B. request.setAttribute(…);###C
 ### JSP-Konfiguration, WEB-INF ###
-- <el-ignored>true</el-ignored>  
+- `<el-ignored>true</el-ignored>`  
   // Expression language ignored, d. h. Ignorieren von $Anweisungen in JSP-Seiten
-- <scripting-invalid>true</scripting-invalid>
+- `<scripting-invalid>true</scripting-invalid>`
   // Gar kein Scripting auf JSP-Seiten
 - Error – Handling in WEB-INF/web.xml
 
